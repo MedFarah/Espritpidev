@@ -21,7 +21,7 @@ public class EasyRide extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         //GUI/IndexReclamationAdminFXML.fxml    GUI/AcceuilClientFXML.fxml GUI/AcceuilAdminFXML.fxml
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/AfficheCommande.fxml"));
         Scene scene = new Scene(root);
         
       // AquaFx.style();

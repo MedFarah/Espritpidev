@@ -8,6 +8,7 @@ package easy.ride.GUI;
 
 import easy.ride.Utils.DataBase;
 import easy.ride.service.ServiceUtilisateur;
+import easy.ride.service.UserSession;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -80,11 +81,11 @@ public class ForgotController {
         labellogin.setText("");
         labellogin.setTextFill(Color.web("#ff0000"));
         ServiceUtilisateur ser = new ServiceUtilisateur();
-  ser.Recuperer(2);
+        ser.Recuperer(UserSession.getInstace("", "",0).getId());
         if ( mail.isEmpty() || !this.validate(mail) ) {
          labellogin.setText("Email Non Valide !");
         }else{
-             ser.Mail(mail, "smtp.gmail.com");
+             ser.Mail(mail, "smtp.gmail.com",ser.Recuperer(UserSession.getInstace("", "",0).getId()));
             
         }
        

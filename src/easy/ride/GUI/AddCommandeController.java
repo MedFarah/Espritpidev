@@ -50,6 +50,8 @@ public class AddCommandeController implements Initializable {
     private ComboBox<String> cbetat;
     @FXML
     private Label lbl;
+    @FXML
+    private TextField tfid;
 
           ObservableList<String> dbTypeList = FXCollections.observableArrayList("en cours","valider","Annuler");
     /**
@@ -67,12 +69,13 @@ public class AddCommandeController implements Initializable {
         String refC = tfRef.getText();
         //    String etatC = tfEtat.getText();
         String prixC = tfPrix.getText();
+        String id=tfid.getText();
         String etatC=(String) cbetat.getValue();
         ServiceCommande sc = new ServiceCommande();
         float prix = Float.parseFloat(prixC);
         Date currentDatetime = new Date(System.currentTimeMillis());
         java.sql.Date sqlDate = new java.sql.Date(currentDatetime.getTime());
-        Commande p = new Commande(refC,sqlDate, etatC, prix,UserSession.getInstace("", "",0).getId());
+        Commande p = new Commande(refC,sqlDate, etatC, prix,Integer.parseInt(id));
         try {
             sc.ajouter1(p);
         } catch (SQLException ex) {

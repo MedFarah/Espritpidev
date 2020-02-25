@@ -6,8 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="easy.ride.GUI.AddCommandeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easy.ride.GUI.AddCommandeController">
    <children>
       <Label layoutX="66.0" layoutY="67.0" text="Reference" />
       <Label layoutX="66.0" layoutY="134.0" text="Etat" />
@@ -15,6 +14,8 @@
       <TextField fx:id="tfRef" layoutX="248.0" layoutY="63.0" />
       <TextField fx:id="tfPrix" layoutX="248.0" layoutY="203.0" />
       <ComboBox fx:id="cbetat" layoutX="248.0" layoutY="130.0" prefWidth="150.0" />
-      <Button fx:id="bValider" layoutX="248.0" layoutY="277.0" onAction="#ajouter" mnemonicParsing="false" text="Valider" />
+      <Button fx:id="bValider" layoutX="255.0" layoutY="314.0" mnemonicParsing="false" onAction="#ajouter" text="Valider" />
+      <Label layoutX="73.0" layoutY="272.0" text="Client_id" />
+      <TextField fx:id="tfid" layoutX="249.0" layoutY="268.0" />
    </children>
 </AnchorPane>

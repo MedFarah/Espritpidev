@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,7 +71,7 @@ public class InscriptionController implements Initializable {
     @FXML
     private Label labeladresse = new Label();
     @FXML
-    private DatePicker Datens;
+    private DatePicker Datens = new DatePicker();;
     @FXML
     private Label labeldatens = new Label();
     @FXML
@@ -104,11 +105,13 @@ public class InscriptionController implements Initializable {
     
     @FXML
     public void ajouter(ActionEvent event) {
+        
         String nomcomplet = nomComplet.getText();
         String password = Password.getText();
         String passwordrepeat = Passwordrepeat.getText();
         String mail = Mail.getText();
-        String datens = Datens.getPromptText();
+        LocalDate i = Datens.getValue();
+        String datens = i.toString();
         String adresse = Adresse.getText();
         String tel = Tel.getText();
         labelnomcomplet.setText("");
@@ -142,11 +145,18 @@ public class InscriptionController implements Initializable {
         }else if(tel.isEmpty()  || !tel.matches("[0-9]+") || tel.length() != 8){
               labeltel.setText("Champs Non Valide");
         }else {
-            Utilisateur u1 = new Utilisateur(mail, "client", password, nomcomplet, mail, tel, datens, adresse);
+            Utilisateur u1 = new Utilisateur(mail, "client", password, nomcomplet, mail, tel,datens, adresse);
             try {
-                ser.ajouter(u1);
+             System.out.println("Erreur"+datens);
+             boolean b = ser.testInscription(mail);
+             System.out.println(b);
+                 alert.showAndWait();
+             ser.ajouter(u1);
+             alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Inscription");
+        alert.setContentText("Inscription est terminée avec succés!");
                 alert.showAndWait();
-    
+             
                 ser.MailInscription(mail, "smtp.google@gmail.com");
             } catch (SQLException ex) {
                 Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);

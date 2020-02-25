@@ -19,7 +19,7 @@ public interface IServiceUtilisateur<T> {
     boolean delete(T t) throws SQLException;
 
     T connecter(String e, String s) throws SQLException;
-    void Mail(String e,String from);
+    void Mail(String e,String from,String pass);
     boolean update(String password, int id) throws SQLException;
 
     void afficher() throws SQLException;

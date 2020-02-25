@@ -271,7 +271,7 @@ public class ServiceUtilisateur implements IServiceUtilisateur<Utilisateur> {
     
     
     @Override
-    public void Mail(String to,String from) {
+    public void Mail(String to,String from,String mdp) {
       String host = "smtp.gmail.com";//or IP address  
      //Get the session object  
       Properties properties = System.getProperties();  
@@ -283,7 +283,7 @@ public class ServiceUtilisateur implements IServiceUtilisateur<Utilisateur> {
          message.setFrom(new InternetAddress(from));  
          message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));  
          message.setSubject("Récupération Mot de Passe");  
-         message.setText("Bonjour, Votre mot de passe est      ");  
+         message.setText("Bonjour, Votre mot de passe est      "+mdp);  
   
          // Send message  
          Transport.send(message);  
