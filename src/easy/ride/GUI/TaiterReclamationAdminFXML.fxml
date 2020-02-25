@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="589.0" prefWidth="775.0" stylesheets="@../css/bootstrap3.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easy.ride.controller.TaiterReclamationAdminFXMLController">
+   <children>
+      <TextField fx:id="typeReclamationtxt" layoutX="125.0" layoutY="47.0" />
+      <TextArea fx:id="descriptiontxt" layoutX="125.0" layoutY="175.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="objettxt" layoutX="125.0" layoutY="111.0" />
+      <TextField fx:id="DateReclamationtxt" layoutX="556.0" layoutY="47.0" />
+      <TextField fx:id="statustxt" layoutX="556.0" layoutY="111.0" />
+      <TextField fx:id="mailTxt" layoutX="556.0" layoutY="175.0" />
+      <TextField fx:id="nomClientTxt" layoutX="556.0" layoutY="244.0" />
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="531.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="repondre" layoutX="299.0" layoutY="516.0" mnemonicParsing="false" onAction="#OnRepondre" text="Repondre" />
+      <Button fx:id="traiter" layoutX="452.0" layoutY="516.0" mnemonicParsing="false" onAction="#OnTraite" text="Traiter" />
+      <Label layoutX="22.0" layoutY="51.0" text="Type Reclamation" />
+      <Label layoutX="41.0" layoutY="115.0" text="Objet" />
+      <Label layoutX="22.0" layoutY="219.0" text="Description" />
+      <Label layoutX="413.0" layoutY="51.0" text="Date Reclamation" />
+      <Label layoutX="443.0" layoutY="115.0" text="Status" />
+      <Label layoutX="443.0" layoutY="179.0" text="E-mail" />
+      <Label layoutX="443.0" layoutY="248.0" text="Nom Client" />
+      <Label layoutX="443.0" layoutY="390.0" text="Image" />
+      <ImageView fitHeight="39.0" fitWidth="94.0" layoutX="255.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../css/address.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="519.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../css/checkMark.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="30.0" layoutX="516.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../css/user_1_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="494.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../css/icons8-email-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="34.0" layoutX="516.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../css/horloge-icone-9663-32.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="494.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../css/status.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

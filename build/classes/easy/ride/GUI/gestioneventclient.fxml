@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GestioneventclientController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="506.0" prefWidth="745.0" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@../../../../../../../wamp64/www/Pidev2/src/view/event.css" />
+         </stylesheets>
+         <children>
+            <Label id="tfnom" alignment="TOP_LEFT" layoutX="10.0" layoutY="253.0" prefHeight="21.0" prefWidth="202.0" text="descreption d'evenements" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="214.0" fitWidth="140.0" layoutX="565.0" layoutY="-44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../wamp64/www/Pidev2/src/view/Image1.png" />
+               </image>
+            </ImageView>
+            <Label id="tfnombre" layoutX="10.0" layoutY="211.0" prefHeight="21.0" prefWidth="140.0" text="Nombre participants">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField id="tfnom" fx:id="tfnom" layoutX="170.0" layoutY="93.0" prefHeight="25.0" prefWidth="157.0" />
+            <TextField id="tfnombre" fx:id="tfnombre" layoutX="168.0" layoutY="209.0" prefHeight="25.0" prefWidth="157.0" />
+            <Button id="bajout" fx:id="ajouter" layoutX="194.0" layoutY="363.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="131.0" text="Ajouter" />
+            <Label layoutX="39.0" layoutY="22.0" prefHeight="53.0" prefWidth="415.0" text="Gestion Des Evenements" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <TableView fx:id="table" layoutX="325.0" layoutY="122.0" prefHeight="200.0" prefWidth="415.0">
+               <columns>
+                  <TableColumn fx:id="fnom" prefWidth="66.0" text="nom" />
+                  <TableColumn fx:id="fdate" prefWidth="62.0" text="Date" />
+                  <TableColumn fx:id="fnombre" prefWidth="122.0" text="Nombre Participants" />
+                  <TableColumn fx:id="flieux" minWidth="0.0" prefWidth="74.0" text="Lieux" />
+                  <TableColumn fx:id="fdescreption" prefWidth="89.0" text="Descreption" />
+                  <TableColumn fx:id="fid" prefWidth="66.0" text="id" />
+               </columns>
+            </TableView>
+            <TextField fx:id="SearchNewsfx" layoutX="437.0" layoutY="89.0" />
+            <Label layoutX="338.0" layoutY="89.0" text="Rechercher" textFill="RED">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+            <DatePicker id="tfdateeve" fx:id="tfdateeve" layoutX="169.0" layoutY="145.0" prefHeight="25.0" prefWidth="157.0" />
+            <Label id="tfdateeve" layoutX="16.0" layoutY="147.0" text="Date Evenements">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label id="tfnom" alignment="TOP_LEFT" layoutX="10.0" layoutY="95.0" prefHeight="21.0" prefWidth="131.0" text="Nom Evenements" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextArea id="tfdescreption" fx:id="tfdescreption" layoutX="202.0" layoutY="242.0" prefHeight="84.0" prefWidth="124.0" />
+            <Label id="tfdateeve" layoutX="16.0" layoutY="179.0" text="Lieux Evenements">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField id="tflieux" fx:id="tflieux" layoutX="168.0" layoutY="177.0" prefHeight="25.0" prefWidth="157.0" />
+            <Button layoutX="473.0" layoutY="361.0" mnemonicParsing="false" onAction="#imprimerpdf" text="pdf" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

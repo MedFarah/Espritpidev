@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="easy.ride.GUI.AfficheCommandeClientController">
+   <children>
+      <Label layoutX="90.0" layoutY="31.0" text="Votre liste de Commande :" />
+      <TableView fx:id="table" layoutX="90.0" layoutY="59.0" prefHeight="309.0" prefWidth="499.0">
+        <columns>
+          <TableColumn fx:id="ref" prefWidth="109.0" text="Reference" />
+          <TableColumn fx:id="date" prefWidth="128.0" text="Date" />
+            <TableColumn fx:id="etat" prefWidth="127.0" text="Etat" />
+            <TableColumn fx:id="prix" prefWidth="134.0" text="Prix" />
+        </columns>
+      </TableView>
+      <Button fx:id="btndelete" layoutX="21.0" layoutY="175.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Label fx:id="lbl" layoutX="181.0" layoutY="368.0" textFill="RED" />
+   </children>
+</AnchorPane>
