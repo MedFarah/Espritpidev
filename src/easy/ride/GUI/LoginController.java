@@ -86,7 +86,6 @@ public class LoginController implements Initializable {
 	}
 
 	
-    public UserSession UserSession;
     @FXML
     public void connecter(ActionEvent event) throws BackingStoreException, IOException {
 

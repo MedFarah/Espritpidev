@@ -7,6 +7,7 @@ package easy.ride.GUI;
 
 import easy.ride.entities.Commande;
 import easy.ride.service.ServiceCommande;
+import easy.ride.service.UserSession;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -20,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -70,7 +72,7 @@ public class AddCommandeController implements Initializable {
         float prix = Float.parseFloat(prixC);
         Date currentDatetime = new Date(System.currentTimeMillis());
         java.sql.Date sqlDate = new java.sql.Date(currentDatetime.getTime());
-        Commande p = new Commande(refC,sqlDate, etatC, prix,1);
+        Commande p = new Commande(refC,sqlDate, etatC, prix,UserSession.getInstace("", "",0).getId());
         try {
             sc.ajouter1(p);
         } catch (SQLException ex) {
@@ -92,6 +94,8 @@ public class AddCommandeController implements Initializable {
             ps.setTitle("Liste Commande");
             ps.setScene(scene);
             ps.show();
+            // fermer la stage
+                    ((Node)event.getSource()).getScene().getWindow().hide();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

@@ -66,7 +66,7 @@ public class ServiceUtilisateur implements IServiceUtilisateur<Utilisateur> {
             System.out.println("Utilisateur déja Inscrit");
         } else {
             ste = con.createStatement();
-            String requeteInsert = "INSERT INTO `easy`.`utilisateur` (`login`, `password`, `nomComplet`, `mail`,`adresse`,`tel`,`dateNaissance`) VALUES ( '" + t.getLogin() + "', '" + t.getPassword() + "', '" + t.getNomcomplet() + "','" + t.getMail() + "','" + t.getAdresse() + "','" + t.getTel() + "','" + t.getDateNaissance() + "' );";
+            String requeteInsert = "INSERT INTO `utilisateur` (`role`,`login`, `password`, `nomComplet`, `mail`,`adresse`,`tel`,`dateNaissance`) VALUES ('Client', '" + t.getLogin() + "', '" + t.getPassword() + "', '" + t.getNomcomplet() + "','" + t.getMail() + "','" + t.getAdresse() + "','" + t.getTel() + "','" + t.getDateNaissance() + "' );";
             ste.executeUpdate(requeteInsert);
             System.out.println("utilisateur   ajouté  \n");
         }
@@ -290,6 +290,27 @@ public class ServiceUtilisateur implements IServiceUtilisateur<Utilisateur> {
          System.out.println("message sent successfully....");  
   
       }catch (MessagingException mex) {mex.printStackTrace();}  
-   } 
+   }
+    
+    public void MailInscription(String to,String from) {
+      String host = "smtp.gmail.com";//or IP address  
+     //Get the session object  
+      Properties properties = System.getProperties();  
+      properties.setProperty("mail.smtp.host", host);  
+      Session session = Session.getDefaultInstance(properties);  
+          //compose the message  
+      try{  
+         MimeMessage message = new MimeMessage(session);  
+         message.setFrom(new InternetAddress(from));  
+         message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));  
+         message.setSubject("Félicitation ");  
+         message.setText("Votre Incription est Terminée avec Succés      ");  
+  
+         // Send message  
+         Transport.send(message);  
+         System.out.println("message sent successfully....");  
+  
+      }catch (MessagingException mex) {mex.printStackTrace();}  
+   }
 
 }

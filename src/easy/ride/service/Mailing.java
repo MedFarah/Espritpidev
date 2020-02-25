@@ -51,7 +51,7 @@ public class Mailing {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() 
             {//un objet Authenticator optionnel qui permet d'authentifier l'utilisateur auprès du serveur de mails
-                return new PasswordAuthentication("hamouchka7@gmail.com", "mohamedfarah7722");
+                return new PasswordAuthentication("hamouchka7@gmail.com", "MohamedfaraH7722");
             }
         });
 

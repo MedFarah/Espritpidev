@@ -26,7 +26,7 @@ public class EasyRide extends Application {
         
       // AquaFx.style();
        // FlatterFX.style();
-        stage.setTitle("Reclamation");
+        //stage.setTitle("Reclamation");
         stage.setScene(scene);
         stage.show();
     }

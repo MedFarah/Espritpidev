@@ -7,6 +7,7 @@ package easy.ride.controller;
 
 import easy.ride.EasyRide;
 import easy.ride.entities.Reclamation;
+import easy.ride.entities.Utilisateur;
 import easy.ride.service.Mailing;
 import easy.ride.service.ServiceReclamation;
 import java.io.FileInputStream;
@@ -115,7 +116,7 @@ public class TaiterReclamationAdminFXMLController implements Initializable {
         return reclamation;
     }
 
-    public void setReclamation(Reclamation reclamation) {
+    public void setReclamation(Reclamation reclamation) throws SQLException {
         this.reclamation = reclamation;
         objettxt.setText(reclamation.getObjet()); 
         objettxt.setDisable(true);
@@ -129,6 +130,9 @@ public class TaiterReclamationAdminFXMLController implements Initializable {
         DateReclamationtxt.setDisable(true);
         statustxt.setText(reclamation.getStatus());
         statustxt.setDisable(true);
+        Utilisateur u = serviceReclamation.FindUserById(reclamation.getId_user());
+        nomClientTxt.setText(u.getNomcomplet());
+        nomClientTxt.setDisable(true);
         String im;
          if(reclamation.getImage().equals("No picture"))
              { im ="C:\\Users\\ASUS\\Desktop\\images.jpg";}

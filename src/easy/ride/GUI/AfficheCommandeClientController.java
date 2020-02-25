@@ -1,4 +1,4 @@
-/*
+        /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,6 +7,7 @@ package easy.ride.GUI;
 
 import easy.ride.entities.Commande;
 import easy.ride.service.ServiceCommande;
+import easy.ride.service.UserSession;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -51,7 +52,7 @@ public class AfficheCommandeClientController implements Initializable {
      public void affiche(){
         ObservableList<Commande> observableList = null;
         try {
-            observableList = FXCollections.observableArrayList(sc.AfficherCommandeParClient(1));
+            observableList = FXCollections.observableArrayList(sc.AfficherCommandeParClient(UserSession.getInstace("", "",0).getId()));
             table.setItems(observableList);
         } catch (SQLException ex) {
             Logger.getLogger(AfficheCommandeController.class.getName()).log(Level.SEVERE, null, ex);

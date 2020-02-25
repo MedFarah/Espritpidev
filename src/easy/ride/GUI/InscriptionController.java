@@ -125,6 +125,9 @@ public class InscriptionController implements Initializable {
         labeladresse.setTextFill(Color.web("#ff0000"));
         labeltel.setText("");
         labeltel.setTextFill(Color.web("#ff0000"));
+         Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Inscription");
+        alert.setContentText("Inscription est terminée avec succés!");
         ServiceUtilisateur ser = new ServiceUtilisateur();
         if(nomcomplet.isEmpty() || !this.isStringOnlyAlphabet(nomcomplet) || nomcomplet.length()<6 || nomcomplet.length()>30 ){
             labelnomcomplet.setText("Champs Non Valide");
@@ -134,16 +137,17 @@ public class InscriptionController implements Initializable {
               labelpasswordrepeat.setText("Mot de passes incompatibles");
         }else if( mail.isEmpty() || !this.validate(mail) ){
               labelmail.setText("Champs Non Valide");
-        }else if(datens.isEmpty()){
-              labeldatens.setText("Champs Non Valide");
         }else if(adresse.isEmpty() ||  adresse.length()<6 || adresse.length()>50){
               labeladresse.setText("Champs Non Valide");
-        }else if(tel.isEmpty()  || this.isStringOnlyAlphabet(tel) || nomcomplet.length()<8 || nomcomplet.length()>8){
+        }else if(tel.isEmpty()  || !tel.matches("[0-9]+") || tel.length() != 8){
               labeltel.setText("Champs Non Valide");
         }else {
             Utilisateur u1 = new Utilisateur(mail, "client", password, nomcomplet, mail, tel, datens, adresse);
             try {
                 ser.ajouter(u1);
+                alert.showAndWait();
+    
+                ser.MailInscription(mail, "smtp.google@gmail.com");
             } catch (SQLException ex) {
                 Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
             }

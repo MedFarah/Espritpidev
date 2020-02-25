@@ -6,25 +6,28 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="easy.ride.GUI.AfficheCommandeController">
+<AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easy.ride.GUI.AfficheCommandeController">
    <children>
-      <Label layoutX="86.0" layoutY="30.0" text="Reference" />
-      <TextField fx:id="txt" layoutX="217.0" layoutY="26.0" />
-      <TableView fx:id="table" layoutX="87.0" layoutY="66.0" prefHeight="297.0" prefWidth="504.0">
+      <Label layoutX="278.0" layoutY="30.0" text="Reference" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="txt" layoutX="443.0" layoutY="26.0" prefHeight="25.0" prefWidth="215.0" />
+      <TableView fx:id="table" layoutX="90.0" layoutY="66.0" prefHeight="297.0" prefWidth="748.0">
         <columns>
           <TableColumn fx:id="ref" prefWidth="115.0" text="Reference" />
-          <TableColumn fx:id="date" prefWidth="139.0" text="Date" />
-            <TableColumn fx:id="etat" prefWidth="124.0" text="Etat" />
-            <TableColumn fx:id="prix" prefWidth="125.0" text="Prix" />
+          <TableColumn fx:id="date" prefWidth="267.0" text="Date" />
+            <TableColumn fx:id="etat" prefWidth="200.0" text="Etat" />
+            <TableColumn fx:id="prix" prefWidth="150.0" text="Prix" />
         </columns>
       </TableView>
-      <Button fx:id="btnrecherche" layoutX="402.0" layoutY="26.0" mnemonicParsing="false" onAction="#recherche" text="Recherche" />
-      <Button fx:id="btnadd" layoutX="15.0" layoutY="141.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="53.0" text="Add" />
-      <Button fx:id="btnedit" layoutX="16.0" layoutY="202.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="51.0" text="Edit" />
-      <Button fx:id="btndelete" layoutX="16.0" layoutY="265.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
-      <Button fx:id="btnpdf" layoutX="102.0" layoutY="363.0" mnemonicParsing="false" onAction="#pdfs" text="PDF" />
+      <Button fx:id="btnrecherche" layoutX="718.0" layoutY="26.0" mnemonicParsing="false" onAction="#recherche" text="Recherche" />
+      <Button fx:id="btnadd" layoutX="120.0" layoutY="396.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="53.0" text="Add" />
+      <Button fx:id="btnedit" layoutX="334.0" layoutY="396.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="51.0" text="Edit" />
+      <Button fx:id="btndelete" layoutX="582.0" layoutY="396.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button fx:id="btnpdf" layoutX="771.0" layoutY="396.0" mnemonicParsing="false" onAction="#pdfs" text="PDF" />
       <Label fx:id="lbl" layoutX="203.0" layoutY="367.0" textFill="RED" />
    </children>
 </AnchorPane>

@@ -118,7 +118,6 @@ public class IndexReclamationClientFXMLController implements Initializable {
 
         //TableView data
         try {
-            System.out.println("*************************************"+UserSession.getInstace("", "",0).getId());
             observableList = FXCollections.observableArrayList(serviceReclamation.afficherReclamationParClient(UserSession.getInstace("", "",0).getId()));
             table.setItems(observableList);
 

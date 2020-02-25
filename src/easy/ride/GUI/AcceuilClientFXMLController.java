@@ -7,6 +7,7 @@ package easy.ride.GUI;
 
 import easy.ride.EasyRide;
 import easy.ride.controller.MailFXMLController;
+import easy.ride.service.ServiceCommande;
 import easy.ride.service.ServiceReclamation;
 import easy.ride.service.Serviceevenements;
 import java.io.IOException;
@@ -44,6 +45,8 @@ public class AcceuilClientFXMLController implements Initializable {
     private Text txtReclamation;
     ServiceReclamation serviceReclamation = new ServiceReclamation();
     Serviceevenements se = new Serviceevenements();
+    ServiceCommande sc = new ServiceCommande();
+
 
 
     /**
@@ -54,12 +57,16 @@ public class AcceuilClientFXMLController implements Initializable {
         // TODO
         int nbrReclamation = 0;
         int nbrEvents = 0;
+        int nbrCommande = 0;
         //nbr reclamations
         nbrReclamation=serviceReclamation.get_Number_Reclamation();
         txtReclamation.setText(Integer.toString(nbrReclamation));
         //nbr events
         nbrEvents= se.get_Number_Reclamation();
         txtEvents.setText(Integer.toString(nbrEvents));
+        //nbr commande
+        nbrCommande= sc.get_Number_Reclamation();
+        txtCommande.setText(Integer.toString(nbrEvents));
     }    
 
     @FXML
@@ -78,6 +85,24 @@ public class AcceuilClientFXMLController implements Initializable {
     private void OnClickBtnEvenement(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(AcceuilClientFXMLController.class.getResource("gestioneventclient.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    private void OnClickBtnCommande(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(AcceuilClientFXMLController.class.getResource("AfficheCommandeClient.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    private void OnClickBtnSettings(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(AcceuilClientFXMLController.class.getResource("Settings.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

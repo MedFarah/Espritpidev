@@ -16,6 +16,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -174,4 +176,23 @@ public class ServiceCommande implements IServiceCommande<Commande> {
      }
     return arr;
     }
+     
+     public int get_Number_Reclamation() {
+        int Message_Number=0;
+        try {
+            ste=con.createStatement();
+            ResultSet rs=ste.executeQuery("SELECT COUNT(*) FROM `commande`");
+            while (rs.next()) {
+                Message_Number = rs.getInt(1);
+            }
+            return Message_Number;
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+
+        return Message_Number;
+        
+    }
+     
 }

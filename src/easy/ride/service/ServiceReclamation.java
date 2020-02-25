@@ -8,6 +8,7 @@ package easy.ride.service;
 import easy.ride.IService.IServiceReclamation;
 import easy.ride.Utils.DataBase;
 import easy.ride.entities.Reclamation;
+import easy.ride.entities.Utilisateur;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
@@ -169,6 +170,34 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
 
         return Message_Number;
         
+    }
+    
+    //
+    public Utilisateur FindUserById(int p) throws SQLException {
+        // TODO Auto-generated method stub
+        Utilisateur u=null;
+        String requeteUpdate = "select * FROM utilisateur where id_user = ?";
+        PreparedStatement preparedStmt = con.prepareStatement(requeteUpdate);
+        preparedStmt.setInt(1, p);
+        List<Utilisateur> arr = new ArrayList<>();
+        ResultSet rs = preparedStmt.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("id_user");
+            String nomcomplet = rs.getString("nomComplet");
+            String role = rs.getString("role");
+            String login = rs.getString("login");
+            String password = rs.getString("password");
+            String mail = rs.getString("mail");
+            String tel = rs.getString("tel");
+            String date = rs.getString("dateNaissance");
+            String adresse = rs.getString("adresse");
+            Utilisateur user = new Utilisateur(id,login,role, password, nomcomplet, mail, tel, date, adresse);
+            arr.add(u);
+            u=user;
+        }
+        
+        
+        return u;
     }
     
 }

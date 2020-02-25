@@ -13,6 +13,7 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import easy.ride.entities.Commande;
+import easy.ride.entities.Reclamation;
 import easy.ride.service.ServiceCommande;
 import java.awt.Desktop;
 import java.io.File;
@@ -34,6 +35,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -41,10 +44,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -92,9 +98,40 @@ public class AfficheCommandeController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
         prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        
+         //event row dbl click
+         table.setRowFactory(t ->{
+         TableRow<Commande> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    Commande rowData = (Commande) row.getItem();
+                    Notifications n = Notifications.create()
+                            .title("Erreur")
+                            .text("Choix invalide")
+                            .graphic(null)
+                            .position(Pos.TOP_CENTER)
+                            .hideAfter(Duration.seconds(5));
+                    n.showWarning();
+                    try {
+                        Parent root = FXMLLoader
+        .load(getClass().getResource("EditCommande.fxml"));
+            
+            Scene scene = new Scene(root);
+            Stage ps=new Stage();
+            ps.setTitle("Liste Commande");
+            ps.setScene(scene);
+            ps.show();
+            // fermer la stage
+                    ((Node)event.getSource()).getScene().getWindow().hide();
+                    } catch (Exception ex) {
+                        System.out.println(ex.getMessage());
+                    }
+
+                }
+            });
          
-        
+         return row;
+         });
+       
         
         
         
@@ -183,13 +220,15 @@ if (alert.getResult() == ButtonType.NO || alert.getResult() == ButtonType.CANCEL
             ps.setTitle("Liste Commande");
             ps.setScene(scene);
             ps.show();
+            // fermer la stage
+                    ((Node)event.getSource()).getScene().getWindow().hide();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
        
     }
     
-   @FXML
+  @FXML
        private void pdfs() 
           throws Exception{
         try {
@@ -204,26 +243,40 @@ if (alert.getResult() == ButtonType.NO || alert.getResult() == ButtonType.CANCEL
                     PdfWriter.getInstance(my_pdf_report, new FileOutputStream("ListeCommande.pdf"));
                     my_pdf_report.open();            
                     //we have four columns in our table
-                    PdfPTable my_report_table = new PdfPTable(4);
+                    PdfPTable my_report_table = new PdfPTable(5);
                     //create a cell object
                     PdfPCell table_cell;
+                    
+                    table_cell=new PdfPCell(new Phrase("Reference"));
+                                    my_report_table.addCell(table_cell);
+                                    table_cell=new PdfPCell(new Phrase("Date"));
+                                    my_report_table.addCell(table_cell);
+                                    table_cell=new PdfPCell(new Phrase("Etat"));
+                                    my_report_table.addCell(table_cell);
+                                    table_cell=new PdfPCell(new Phrase("Prix"));
+                                    my_report_table.addCell(table_cell);
+                                    table_cell=new PdfPCell(new Phrase("user_id"));
+                                    my_report_table.addCell(table_cell);
 
                     while (query_set.next()) {                
-                                    String dept_id = query_set.getString(1);
-                                    table_cell=new PdfPCell(new Phrase(dept_id));
+                                    String refer = query_set.getString(1);
+                                    table_cell=new PdfPCell(new Phrase(refer));
                                     my_report_table.addCell(table_cell);
                                     
-                                    String dept_name=query_set.getString(2);
+                                    String date=query_set.getString(2);
                                   //  DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
                                   //  String strDate = dateFormat.format(dept_name);
                                     
-                                    table_cell=new PdfPCell(new Phrase(dept_name));
+                                    table_cell=new PdfPCell(new Phrase(date));
                                     my_report_table.addCell(table_cell);
-                                    String manager_id=query_set.getString(3);
-                                    table_cell=new PdfPCell(new Phrase(manager_id));
+                                    String etat=query_set.getString(3);
+                                    table_cell=new PdfPCell(new Phrase(etat));
                                     my_report_table.addCell(table_cell);
-                                    float location_id=query_set.getFloat(4);
-                                    table_cell=new PdfPCell(new Phrase(location_id));
+                                    String prix=query_set.getString(4);
+                                    table_cell=new PdfPCell(new Phrase(prix));
+                                    my_report_table.addCell(table_cell);
+                                    String user=query_set.getString(5);
+                                    table_cell=new PdfPCell(new Phrase(user));
                                     my_report_table.addCell(table_cell);
                                     }
                     /* Attach report table to PDF */
