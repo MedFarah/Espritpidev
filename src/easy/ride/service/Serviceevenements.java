@@ -5,9 +5,9 @@
  */
 package easy.ride.service;
 
-import com.easyride.Entite.Evenements;
 import com.easyride.IService.IService;
 import easy.ride.Utils.DataBase;
+import easy.ride.entities.Evenements;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

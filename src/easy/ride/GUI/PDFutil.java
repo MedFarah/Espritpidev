@@ -16,7 +16,7 @@ import com.lowagie.text.html.WebColors;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.easyride.Entite.Evenements;
+import easy.ride.entities.Evenements;
 import easy.ride.service.Serviceevenements;
 import java.awt.Color;
 import java.awt.Desktop;

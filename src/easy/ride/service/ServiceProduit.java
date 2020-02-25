@@ -5,9 +5,9 @@
  */
 package easy.ride.service;
 
-import com.easyride.Entite.Produit;
 import easy.ride.IService.IServiceProduit;
 import easy.ride.Utils.DataBase;
+import easy.ride.entities.Produit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

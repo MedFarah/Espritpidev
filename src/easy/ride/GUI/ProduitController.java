@@ -7,7 +7,7 @@ package easy.ride.GUI;
 
 
 import easy.ride.Utils.DataBase;
-import com.easyride.Entite.Produit;
+import easy.ride.entities.Produit;
 import easy.ride.service.ServiceProduit;
 import java.net.URL;
 import java.sql.Connection;

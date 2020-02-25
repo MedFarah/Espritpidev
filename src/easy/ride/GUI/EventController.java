@@ -6,7 +6,7 @@
 package easy.ride.GUI;
 
 
-import com.easyride.Entite.Evenements;
+import easy.ride.entities.Evenements;
 import com.lowagie.text.DocumentException;
 import easy.ride.Utils.DataBase;
 import easy.ride.service.Serviceevenements;

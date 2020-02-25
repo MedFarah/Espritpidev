@@ -1,6 +1,6 @@
 package easy.ride.service;
 
-import com.easyride.Entite.Evenements;
+import easy.ride.entities.Evenements;
 import easy.ride.IService.IServiceUtilisateur;
 import easy.ride.Utils.DataBase;
 import easy.ride.entities.Utilisateur;
