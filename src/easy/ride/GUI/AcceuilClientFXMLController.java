@@ -8,6 +8,7 @@ package easy.ride.GUI;
 import easy.ride.EasyRide;
 import easy.ride.controller.MailFXMLController;
 import easy.ride.service.ServiceCommande;
+import easy.ride.service.ServiceMaintenance;
 import easy.ride.service.ServiceReclamation;
 import easy.ride.service.Serviceevenements;
 import java.io.IOException;
@@ -46,6 +47,7 @@ public class AcceuilClientFXMLController implements Initializable {
     ServiceReclamation serviceReclamation = new ServiceReclamation();
     Serviceevenements se = new Serviceevenements();
     ServiceCommande sc = new ServiceCommande();
+    ServiceMaintenance sm = new ServiceMaintenance();
 
 
 
@@ -58,6 +60,7 @@ public class AcceuilClientFXMLController implements Initializable {
         int nbrReclamation = 0;
         int nbrEvents = 0;
         int nbrCommande = 0;
+         int nbrMaintenance = 0;
         //nbr reclamations
         nbrReclamation=serviceReclamation.get_Number_Reclamation();
         txtReclamation.setText(Integer.toString(nbrReclamation));
@@ -66,7 +69,10 @@ public class AcceuilClientFXMLController implements Initializable {
         txtEvents.setText(Integer.toString(nbrEvents));
         //nbr commande
         nbrCommande= sc.get_Number_Reclamation();
-        txtCommande.setText(Integer.toString(nbrEvents));
+        txtCommande.setText(Integer.toString(nbrCommande));
+        //nbr commande
+        nbrMaintenance= sm.get_Number_Maintenance();
+        txtLocation.setText(Integer.toString(nbrMaintenance));
     }    
 
     @FXML
@@ -103,6 +109,15 @@ public class AcceuilClientFXMLController implements Initializable {
     private void OnClickBtnSettings(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(AcceuilClientFXMLController.class.getResource("Settings.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    private void OnClickBtnMaintenance(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(AcceuilClientFXMLController.class.getResource("MaintenanceFXML.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

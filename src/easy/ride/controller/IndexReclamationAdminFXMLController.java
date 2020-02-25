@@ -420,7 +420,7 @@ CheckSearch();
     private void loadDblClick(Reclamation rowData) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private void loadUpdateWindow(Reclamation reclamationSelectione) throws IOException {
+    private void loadUpdateWindow(Reclamation reclamationSelectione) throws IOException, SQLException {
          Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(EasyRide.class.getResource("GUI/TaiterReclamationAdminFXML.fxml"));

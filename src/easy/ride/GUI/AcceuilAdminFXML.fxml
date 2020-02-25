@@ -67,36 +67,6 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefWidth="150.0" style="-fx-border-width: 0 0 0 5px; -fx-border-color: white;">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-size: 1.3em;" text="Tables" wrappingWidth="100.0">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefWidth="150.0" style="-fx-border-width: 0 0 0 5px; -fx-border-color: white;">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-size: 1.3em;" text="Maps" wrappingWidth="100.0">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefWidth="150.0" style="-fx-border-width: 0 0 0 5px; -fx-border-color: white;">
-               <children>
                   <Button fx:id="btnCommande" mnemonicParsing="false" onAction="#OnClickBtnCommande" prefHeight="25.0" prefWidth="105.0" text="Commande">
                      <effect>
                         <SepiaTone />
@@ -132,6 +102,12 @@
                </VBox.margin>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefWidth="150.0" style="-fx-border-width: 0 0 0 5px; -fx-border-color: white;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
                <children>
                   <Button fx:id="btnEvents" mnemonicParsing="false" onAction="#OnClickBtnEvenement" prefHeight="25.0" prefWidth="108.0" text="Evenements">
                      <font>
@@ -142,14 +118,14 @@
                      </effect>
                   </Button>
                </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefWidth="150.0" style="-fx-border-width: 0 0 0 5px; -fx-border-color: white;">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefWidth="150.0" style="-fx-border-width: 0 0 0 5px; -fx-border-color: white;">
                <children>
                   <Button fx:id="btnReclamation" mnemonicParsing="false" onAction="#OnClickBtnReclamation" prefHeight="25.0" prefWidth="109.0" text="Reclamation">
                      <font>
@@ -160,6 +136,8 @@
                      </effect>
                   </Button>
                </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefWidth="150.0" style="-fx-border-width: 0 0 0 5px; -fx-border-color: white;">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>

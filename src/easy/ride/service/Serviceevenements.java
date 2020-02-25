@@ -5,7 +5,7 @@
  */
 package easy.ride.service;
 
-import com.easyride.IService.IService;
+import easy.ride.IService.IService;
 import easy.ride.Utils.DataBase;
 import easy.ride.entities.Evenements;
 import java.sql.Connection;
@@ -34,7 +34,6 @@ public class Serviceevenements implements IService<Evenements>{
     }
 
     @Override
-  
     public void ajouter(Evenements t) throws SQLException
     {
     PreparedStatement pre=con.prepareStatement("INSERT INTO `evenements` (`id`, `Nom_evenements`,`nombre`,`dateeve`,`lieuxeve`,`descreptioneve`)"

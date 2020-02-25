@@ -51,6 +51,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+import org.shaded.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.shaded.apache.poi.ss.usermodel.Row;
+import org.shaded.apache.poi.ss.usermodel.Sheet;
+import org.shaded.apache.poi.ss.usermodel.Workbook;
 
 /**
  * FXML Controller class
@@ -317,6 +321,54 @@ if (alert.getResult() == ButtonType.NO || alert.getResult() == ButtonType.CANCEL
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    
+     @FXML
+    private void excel(ActionEvent event){
+        Workbook workbook = new HSSFWorkbook();
+        Sheet spreadsheet = workbook.createSheet("sample");
+
+        Row row = spreadsheet.createRow(0);
+
+        for (int j = 0; j < table.getColumns().size(); j++) {
+            row.createCell(j).setCellValue(table.getColumns().get(j).getText());
+        }
+
+        for (int i = 0; i < table.getItems().size(); i++) {
+            row = spreadsheet.createRow(i + 1);
+            for (int j = 0; j < table.getColumns().size(); j++) {
+                if(table.getColumns().get(j).getCellData(i) != null) { 
+                    row.createCell(j).setCellValue(table.getColumns().get(j).getCellData(i).toString()); 
+                }
+                else {
+                    row.createCell(j).setCellValue("");
+                }   
+            }
+        }
+
+        FileOutputStream fileOut = null;
+        try {
+            fileOut = new FileOutputStream("ListeCommande.xls");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AfficheCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            workbook.write(fileOut);
+        } catch (IOException ex) {
+            Logger.getLogger(AfficheCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            fileOut.close();
+        } catch (IOException ex) {
+            Logger.getLogger(AfficheCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            Desktop.getDesktop().open(new File ("./ListeCommande.xls"));
+        } catch (IOException ex) {
+            Logger.getLogger(AfficheCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
        

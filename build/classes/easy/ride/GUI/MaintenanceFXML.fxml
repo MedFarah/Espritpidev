@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="688.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easy.ride.GUI.MaintenanceFXMLController">
+   <children>
+      <Label fx:id="Velo1" layoutX="188.0" layoutY="63.0" text="Gestion de Maintenances">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="455.0" fitWidth="391.0" layoutX="-78.0" layoutY="-127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/Uni%203A5/sem2/pi/LogoFinal-01.png" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="14.0" layoutY="167.0" prefHeight="507.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Afficher">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableau" layoutX="10.0" layoutY="23.0" onMouseClicked="#fill" prefHeight="240.0" prefWidth="735.0">
+                          <columns>
+                            <TableColumn fx:id="col_id" prefWidth="47.0" text="id" />
+                            <TableColumn fx:id="col_titre" prefWidth="134.0" text="titre" />
+                              <TableColumn fx:id="col_description" prefWidth="312.0" text="description" />
+                              <TableColumn fx:id="col_date" prefWidth="117.0" text="date" />
+                              <TableColumn fx:id="col_etat" prefWidth="39.0" text="etat" />
+                              <TableColumn fx:id="col_client" prefWidth="85.0" text="client" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="txt_titre1" layoutX="106.0" layoutY="308.0" />
+                        <TextField fx:id="txt_etat1" layoutX="349.0" layoutY="349.0" />
+                        <TextField fx:id="txt_client1" layoutX="349.0" layoutY="391.0" />
+                        <DatePicker fx:id="txt_date1" layoutX="351.0" layoutY="308.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextArea fx:id="txt_description1" layoutX="106.0" layoutY="346.0" prefHeight="70.0" prefWidth="149.0" />
+                        <Label fx:id="label_titre1" layoutX="57.0" layoutY="312.0" onMouseClicked="#actualiser" onMousePressed="#actualiser" text="Titre" />
+                        <Label fx:id="label_description1" layoutX="38.0" layoutY="353.0" text="Description" />
+                        <Label fx:id="label_date1" layoutX="300.0" layoutY="312.0" text="Date" />
+                        <Label fx:id="label_etat1" layoutX="302.0" layoutY="353.0" text="Etat" />
+                        <Label fx:id="label_client1" layoutX="290.0" layoutY="395.0" text="ID Client" />
+                        <Button fx:id="Button_update" layoutX="546.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#Update" text="Update" />
+                        <Button fx:id="Button_delete" layoutX="645.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#Supprimer" text="Delete" />
+                        <Label fx:id="label_ID" layoutX="525.0" layoutY="353.0" text="ID" />
+                        <Button fx:id="Button_refresh" layoutX="11.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#Refresh" prefHeight="3.0" prefWidth="62.0" text="Refresh" />
+                        <TextField fx:id="txt_id" layoutX="547.0" layoutY="349.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextField fx:id="recherche1" layoutX="81.0" layoutY="263.0" />
+                        <Button fx:id="Button_update1" layoutX="574.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#Confirmer" text="Confirmer RDV" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Ajouter">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="258.0">
+                     <children>
+                        <Button fx:id="ajout" layoutX="279.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#ajouter" prefHeight="43.0" prefWidth="172.0" text="Ajouter" />
+                        <TextField fx:id="txt_titre" layoutX="197.0" layoutY="175.0" />
+                        <TextField fx:id="txt_etat" layoutX="440.0" layoutY="216.0" />
+                        <TextField fx:id="txt_client" layoutX="440.0" layoutY="258.0" />
+                        <DatePicker fx:id="txt_date" layoutX="442.0" layoutY="175.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextArea fx:id="txt_description" layoutX="197.0" layoutY="213.0" prefHeight="70.0" prefWidth="149.0" />
+                        <Label fx:id="label_titre" layoutX="148.0" layoutY="179.0" text="Titre" />
+                        <Label fx:id="label_description" layoutX="129.0" layoutY="220.0" text="Description" />
+                        <Label fx:id="label_date" layoutX="391.0" layoutY="179.0" text="Date" />
+                        <Label fx:id="label_etat" layoutX="393.0" layoutY="220.0" text="Etat" />
+                        <Label fx:id="label_client" layoutX="381.0" layoutY="262.0" text="ID Client" />
+                        <Label fx:id="label_maintenance" layoutX="335.0" layoutY="63.0" text="Maintenance" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

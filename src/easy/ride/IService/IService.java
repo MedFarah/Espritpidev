@@ -1,4 +1,4 @@
-package com.easyride.IService;
+package easy.ride.IService;
 
 
 import java.sql.SQLException;

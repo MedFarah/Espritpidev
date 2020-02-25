@@ -25,9 +25,10 @@
       </TableView>
       <Button fx:id="btnrecherche" layoutX="718.0" layoutY="26.0" mnemonicParsing="false" onAction="#recherche" text="Recherche" />
       <Button fx:id="btnadd" layoutX="120.0" layoutY="396.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="53.0" text="Add" />
-      <Button fx:id="btnedit" layoutX="334.0" layoutY="396.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="51.0" text="Edit" />
-      <Button fx:id="btndelete" layoutX="582.0" layoutY="396.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button fx:id="btnedit" layoutX="239.0" layoutY="396.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="51.0" text="Edit" />
+      <Button fx:id="btndelete" layoutX="356.0" layoutY="396.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
       <Button fx:id="btnpdf" layoutX="771.0" layoutY="396.0" mnemonicParsing="false" onAction="#pdfs" text="PDF" />
       <Label fx:id="lbl" layoutX="203.0" layoutY="367.0" textFill="RED" />
+      <Button fx:id="excel" layoutX="683.0" layoutY="396.0" mnemonicParsing="false" onAction="#excel" text="Excel" />
    </children>
 </AnchorPane>
