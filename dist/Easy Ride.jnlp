@@ -16,7 +16,6 @@
     <jar href="lib\jbig2-imageio-3.0.3.jar" size="152680" download="eager" />
     <jar href="lib\mail.jar" size="494975" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.46.jar" size="1004838" download="eager" />
     <jar href="lib\pdf.jar" size="4467" download="eager" />
     <jar href="lib\pdfbox-app-2.0.8.jar" size="8029018" download="eager" />
     <jar href="lib\pdfjet-5.75.jar" size="215660" download="eager" />
