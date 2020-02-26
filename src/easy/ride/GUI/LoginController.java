@@ -113,6 +113,18 @@ public class LoginController implements Initializable {
                     stage.show();
                     // fermer la stage
                     ((Node)event.getSource()).getScene().getWindow().hide();}
+                    else if (user.getRole().contains("Chef site")){
+                    UserSession userSession =    UserSession.getInstace( user.getLogin(),user.getRole(),user.getId_user());
+                    ChefSiteController.IdSite = String.valueOf(user.getId_user());
+                        Stage stage = new Stage();
+                    Parent root = FXMLLoader.load(getClass().getResource("ChefSite.fxml"));
+                    
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                    // fermer la stage
+                    ((Node)event.getSource()).getScene().getWindow().hide();
+                    }
                     else{
                     UserSession userSession =    UserSession.getInstace( user.getLogin(),user.getRole(),user.getId_user());
                     

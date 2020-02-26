@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -35,8 +36,6 @@ public class AcceuilClientFXMLController implements Initializable {
     @FXML
     private Button btnReclamation;
     @FXML
-    private Button btnEvent;
-    @FXML
     private Text txtEvents;
     @FXML
     private Text txtCommande;
@@ -48,6 +47,14 @@ public class AcceuilClientFXMLController implements Initializable {
     Serviceevenements se = new Serviceevenements();
     ServiceCommande sc = new ServiceCommande();
     ServiceMaintenance sm = new ServiceMaintenance();
+    @FXML
+    private Label txtClient;
+    @FXML
+    private Button btnCommande;
+    @FXML
+    private Button btnEvents;
+    @FXML
+    private Button btnLocation;
 
 
 
@@ -118,6 +125,15 @@ public class AcceuilClientFXMLController implements Initializable {
     private void OnClickBtnMaintenance(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(AcceuilClientFXMLController.class.getResource("MaintenanceFXML.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void OnClickBtnLocation(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(AcceuilClientFXMLController.class.getResource("UserAcceuil.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

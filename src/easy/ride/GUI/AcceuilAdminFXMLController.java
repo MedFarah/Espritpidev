@@ -48,6 +48,12 @@ public class AcceuilAdminFXMLController implements Initializable {
     ServiceReclamation serviceReclamation = new ServiceReclamation();
     Serviceevenements se = new Serviceevenements();
     ServiceCommande sc = new ServiceCommande();
+    @FXML
+    private Button btnCommande;
+    @FXML
+    private Button btnProduit;
+    @FXML
+    private Button btnLocation;
 
     /**
      * Initializes the controller class.
@@ -104,6 +110,14 @@ public class AcceuilAdminFXMLController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void OnClickBtnLocation(ActionEvent event) throws IOException {
+        anchorPaneRootAdmin.getChildren().clear();
+        AnchorPane anchor = FXMLLoader.load(getClass().getResource("AdminGui.fxml"));
+       
+        anchorPaneRootAdmin.getChildren().addAll(anchor);
     }
     
 }

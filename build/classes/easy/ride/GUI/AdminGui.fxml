@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easy.ride.GUI.AdminGuiController">
+   <children>
+      <Button layoutX="559.0" layoutY="57.0" mnemonicParsing="false" onAction="#AjouterSite" text="Ajouter site" />
+      <Button layoutX="683.0" layoutY="57.0" mnemonicParsing="false" onAction="#VoirLog" text="Voir logs" />
+      <TableView fx:id="tableHistorique" layoutX="92.0" layoutY="143.0" prefHeight="262.0" prefWidth="654.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="id_user" prefWidth="87.0" text="Id_user" />
+            <TableColumn fx:id="id_type" prefWidth="100.0" text="Id_type" />
+            <TableColumn fx:id="id_site" prefWidth="103.0" text="Id_site" />
+            <TableColumn fx:id="date_debut" prefWidth="110.0" text="date_debut" />
+            <TableColumn fx:id="date_fin" prefWidth="94.0" text="date_fin" />
+            <TableColumn fx:id="status" prefWidth="84.0" text="status" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

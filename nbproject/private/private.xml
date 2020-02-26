@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/entities/Evenements.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/GUI/AfficheCommandeClient.fxml</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/GUI/EventController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/GUI/GestioneventclientController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/entities/Produit.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/GUI/AfficheCommandeController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/GUI/event.fxml</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/service/ServiceUtilisateur.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/GUI/PDFutil.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/service/Serviceevenements.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Espritpidev-master/src/easy/ride/service/ServiceProduit.java</file>
+            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/GUI/LoginController.java</file>
+            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/service/ServiceUser.java</file>
+            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/GUI/ChefSiteController.java</file>
+            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/IService/IUser.java</file>
+            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/GUI/RetoursController.java</file>
         </group>
     </open-files>
 </project-private>
