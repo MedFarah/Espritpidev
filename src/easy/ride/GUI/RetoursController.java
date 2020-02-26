@@ -7,7 +7,9 @@ package easy.ride.GUI;
 
 import easy.ride.entities.Retour;
 import easy.ride.service.ServiceDetail_location;
+import easy.ride.service.ServiceLogs;
 import easy.ride.service.ServiceRetours;
+import easy.ride.service.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -46,7 +48,8 @@ public class RetoursController implements Initializable {
     
     ServiceDetail_location sdl = new ServiceDetail_location();
     ServiceRetours sr = new ServiceRetours();
-
+    ServiceUser su = new ServiceUser();
+    ServiceLogs sl = new ServiceLogs();
     /**
      * Initializes the controller class.
      */
@@ -86,6 +89,10 @@ public class RetoursController implements Initializable {
             
         sr.ajouter(new Retour(Integer.valueOf(ListeIDLocation.getValue()),retard,endom));
         sdl.SetEtatTermine(Integer.valueOf(ListeIDLocation.getValue()));
+        
+        String sujet= "Vous venez de retourner votre vélo";
+        sl.send(sujet, "Notification", su.getUserMailFromLocation(Integer.valueOf(ListeIDLocation.getValue())));
+        sl.writelogs("Chef site "+String.valueOf(idSite)+" a retourné un vélo");
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChefSite.fxml"));
         Parent root = loader.load();

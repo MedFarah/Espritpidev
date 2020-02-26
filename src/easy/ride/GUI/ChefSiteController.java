@@ -7,6 +7,7 @@ package easy.ride.GUI;
 
 import easy.ride.entities.Site;
 import easy.ride.service.ServiceDetail_location;
+import easy.ride.service.ServiceLogs;
 import easy.ride.service.ServiceType;
 import easy.ride.service.ServiceUser;
 import java.io.IOException;
@@ -38,7 +39,8 @@ import org.controlsfx.control.Notifications;
  */
 public class ChefSiteController implements Initializable {
 
-    public static String IdSite;
+    public static String IdChef;
+    public static String role;
     @FXML
     private TableColumn<Site, Number> coloneid;
     @FXML
@@ -59,6 +61,7 @@ public class ChefSiteController implements Initializable {
     ServiceDetail_location sdl = new ServiceDetail_location();
     ServiceType st = new ServiceType();
     ServiceUser su = new ServiceUser();
+    ServiceLogs sl = new ServiceLogs();
 
     /**
      * Initializes the controller class.
@@ -68,15 +71,22 @@ public class ChefSiteController implements Initializable {
         try {
             // TODO
 
-            Site.setText(su.getUserNomComplet(Integer.valueOf(IdSite)));
+            Site.setText(su.getUserNomComplet(Integer.valueOf(IdChef)));
         } catch (SQLException ex) {
             Logger.getLogger(ChefSiteController.class.getName()).log(Level.SEVERE, null, ex);
         }
         ObservableList listdl = FXCollections.observableArrayList();
         
         try {
-            listdl = sdl.readAllChefSite(Integer.valueOf(IdSite));
+            listdl = sdl.readAllChefSite(Integer.valueOf(role.substring(role.lastIndexOf(" "), role.length()).trim()));
         } catch (SQLException ex) {
+            Logger.getLogger(ChefSiteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            sl.writelogs("Chef site "+role.substring(role.lastIndexOf(" "), role.length()).trim()
+                    +" a affiché ses données");
+        } catch (IOException ex) {
             Logger.getLogger(ChefSiteController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -91,7 +101,7 @@ public class ChefSiteController implements Initializable {
         
         String msg = "";
         try {
-            msg = "vous avez "+sdl.GetCountRetour(Integer.valueOf(IdSite))+" velo(s) à retourner aujourd'hui";
+            msg = "vous avez "+sdl.GetCountRetour(Integer.valueOf(IdChef))+" velo(s) à retourner aujourd'hui";
         } catch (SQLException ex) {
             Logger.getLogger(ChefSiteController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -107,7 +117,7 @@ public class ChefSiteController implements Initializable {
 
     @FXML
     private void affichageretours(ActionEvent event) throws IOException {
-        RetoursController.idSite = Integer.valueOf(IdSite);
+        RetoursController.idSite = Integer.valueOf(role.substring(role.lastIndexOf(" "), role.length()).trim());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Retours.fxml"));
         Parent root = loader.load();
         affichage.getScene().setRoot(root);

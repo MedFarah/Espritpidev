@@ -27,6 +27,7 @@ public interface IDetail_location<Detail_location> {
     int GetCountRetour(int site) throws SQLException;
     
     ObservableList<Detail_location> getAllAdmin() throws SQLException;
+    int getNbrLocationSelonStatus(String status) throws SQLException;
     
     
 }

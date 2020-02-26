@@ -7,8 +7,10 @@ package easy.ride.GUI;
 
 import easy.ride.entities.Detail_location;
 import easy.ride.service.ServiceDetail_location;
+import easy.ride.service.ServiceLogs;
 import easy.ride.service.ServiceSite;
 import easy.ride.service.ServiceType;
+import easy.ride.service.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -58,6 +60,8 @@ public class UserchoixController implements Initializable {
     ServiceType st = new ServiceType();
     ServiceSite ss = new ServiceSite();
     ServiceDetail_location sdl = new ServiceDetail_location();
+    ServiceUser su = new ServiceUser();
+    ServiceLogs sl = new ServiceLogs();
 
     /**
      * Initializes the controller class.
@@ -131,11 +135,13 @@ public class UserchoixController implements Initializable {
             Detail_location d = new Detail_location(idClient, id_type, id_site,dtSql, dtSql1);
             sdl.ajouter(d);
 
+            String message = "Vous venez de louer un vélo";
+            sl.send("Felicitaion", message, su.getUserMail(idClient));
             ((Node)event.getSource()).getScene().getWindow().hide();
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserAcceuil.fxml"));
+            /*FXMLLoader loader = new FXMLLoader(getClass().getResource("UserAcceuil.fxml"));
             Parent root = loader.load();
-            datedebut.getScene().setRoot(root);
+            datedebut.getScene().setRoot(root);*/
         }
     }
 

@@ -37,18 +37,18 @@ public class ServiceLogs {
         printWriter.printf(dateFormat.format(date)+" "+req);
         printWriter.printf("");
         printWriter.close();
-        System.out.println("log saved");
+        System.out.println("log saved "+ req);
     }
     
-    public void send(String too){
+    public void send(String Objet,String sujet,String mail){
         try{
             String host ="smtp.gmail.com" ;
             String user = "mohamedali.bouthlija@esprit.tn";
             String pass = "183JMT1738";
-            String to = /*too*/"mohamedali.bouthlija@esprit.tn";
+            String to = mail;
             String from = "mohamedali.bouthlija@esprit.tn";
-            String messageText = "test";
-            String subject = "Your Is Test Email :";
+            String messageText = Objet;
+            String subject = sujet;
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();

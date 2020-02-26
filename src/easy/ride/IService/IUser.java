@@ -20,6 +20,8 @@ public interface IUser<User> {
     Utilisateur GetAllInfoUser(int id) throws SQLException;
     void UpdateRoleUser(int idsite,int id) throws SQLException;
     String getUserNomComplet(int id) throws SQLException;
+    String getUserMail(int id) throws SQLException;
+    String getUserMailFromLocation(int id) throws SQLException;
     /*void delete(int id) throws SQLException;
     void update(User u,int id) throws SQLException;
     List<User> readAll() throws SQLException;*/

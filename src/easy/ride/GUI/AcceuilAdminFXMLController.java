@@ -6,11 +6,15 @@
 package easy.ride.GUI;
 
 import easy.ride.service.ServiceCommande;
+import easy.ride.service.ServiceDetail_location;
 import easy.ride.service.ServiceReclamation;
 import easy.ride.service.Serviceevenements;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,6 +52,7 @@ public class AcceuilAdminFXMLController implements Initializable {
     ServiceReclamation serviceReclamation = new ServiceReclamation();
     Serviceevenements se = new Serviceevenements();
     ServiceCommande sc = new ServiceCommande();
+    ServiceDetail_location sdl = new ServiceDetail_location();
     @FXML
     private Button btnCommande;
     @FXML
@@ -73,7 +78,13 @@ public class AcceuilAdminFXMLController implements Initializable {
         //nbr commande
         nbrCommande= sc.get_Number_Reclamation();
         txtCommande.setText(Integer.toString(nbrEvents));
-
+        
+        try {
+            txtLocation.setText(String.valueOf(sdl.getNbrLocationSelonStatus("En cours")+" (E) "+
+                    String.valueOf(sdl.getNbrLocationSelonStatus("Terminée")+" (T)")));
+        } catch (SQLException ex) {
+            Logger.getLogger(AcceuilAdminFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML

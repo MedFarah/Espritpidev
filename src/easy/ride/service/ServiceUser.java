@@ -116,6 +116,35 @@ public class ServiceUser implements IUser<User>{
         }
         return data;
     }
+
+    @Override
+    public String getUserMail(int id) throws SQLException {
+        req = "select mail from utilisateur where `id_user`=?";
+        pre = con.prepareStatement(req);
+        pre.setInt(1, id);
+        String data = "";
+        resultat = pre.executeQuery();
+        while (resultat.next()) {
+            data = resultat.getString(1);
+        }
+        return data;
+    }
+
+    @Override
+    public String getUserMailFromLocation(int id) throws SQLException {
+        req = "select mail from utilisateur inner join detail_location "
+                + "on detail_location.id_user = utilisateur.id_user inner join retours "
+                + "on retours.id_location = detail_location.id"
+                + " where detail_location.id=?";
+        pre = con.prepareStatement(req);
+        pre.setInt(1, id);
+        String data = "";
+        resultat = pre.executeQuery();
+        while (resultat.next()) {
+            data = resultat.getString(1);
+        }
+        return data;
+    }
     
     
 }

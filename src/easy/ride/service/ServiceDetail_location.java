@@ -196,8 +196,18 @@ public class ServiceDetail_location implements IDetail_location<Detail_location>
         return dl;
     }
     
-    
-    
+    @Override
+    public int getNbrLocationSelonStatus(String status) throws SQLException {
+        req = "SELECT count(*) from `detail_location` where status=? ";
+        pre = con.prepareStatement(req);
+        pre.setString(1, status);
+        resultat = pre.executeQuery();
+        int count = 0;
+        while (resultat.next()) {
+            count = resultat.getInt(1);
+        }
+        return count;
+    }   
     
     
 }
