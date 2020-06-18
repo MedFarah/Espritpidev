@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/GUI/LoginController.java</file>
-            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/service/ServiceUser.java</file>
-            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/GUI/ChefSiteController.java</file>
-            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/IService/IUser.java</file>
-            <file>file:/C:/Users/Dali/Desktop/pidev2020/Espritpidev/src/easy/ride/GUI/RetoursController.java</file>
+            <file>file:/C:/Users/Fares/Desktop/Espritpidev/src/easy/ride/IService/IServiceUtilisateur.java</file>
+            <file>file:/C:/Users/Fares/Desktop/Espritpidev/src/easy/ride/GUI/LoginController.java</file>
+            <file>file:/C:/Users/Fares/Desktop/Espritpidev/src/easy/ride/entities/Utilisateur.java</file>
+            <file>file:/C:/Users/Fares/Desktop/Espritpidev/src/easy/ride/service/ServiceUtilisateur.java</file>
         </group>
     </open-files>
 </project-private>

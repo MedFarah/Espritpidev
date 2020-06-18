@@ -15,9 +15,8 @@ public class Utilisateur {
 
     public Utilisateur() {
     }
-	
-	
-	
+
+    
 	public Utilisateur(String login, String role, String password,String nomcm, String mail, String tel, String date, String adresse) {
 		this.login = login;
                 this.role = role;

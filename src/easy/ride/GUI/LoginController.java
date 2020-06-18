@@ -50,6 +50,7 @@ import javafx.util.StringConverter;
  *
  * @author suare
  */
+
 public class LoginController implements Initializable {
 
     @FXML
@@ -62,14 +63,13 @@ public class LoginController implements Initializable {
     private Hyperlink hyper;
     @FXML
     private Hyperlink hyperc;
-
     @FXML
     private PasswordField tfpassword;
     @FXML
     private Button ajouter;
+    
      private Pattern pattern;
 	private Matcher matcher;
-
 	private static final String EMAIL_PATTERN = 
 		"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 		+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -79,13 +79,10 @@ public class LoginController implements Initializable {
     }
 
    public boolean validate(final String hex) {
-
 		matcher = pattern.matcher(hex);
 		return matcher.matches();
-
 	}
 
-	
     @FXML
     public void connecter(ActionEvent event) throws BackingStoreException, IOException {
 
@@ -96,7 +93,7 @@ public class LoginController implements Initializable {
         labellogin.setTextFill(Color.web("#ff0000"));
         labelpassword.setText("");
         labelpassword.setTextFill(Color.web("#ff0000"));
-        if (login.isEmpty() || !this.validate(login)) {
+        if (login.isEmpty()) {
             labellogin.setText(" Champ Login Non Valide  !");
         } else if (password.isEmpty() || password.length()<6 || password.length() > 30) {
             labelpassword.setText(" Champ Password Non Valide !");
@@ -104,7 +101,7 @@ public class LoginController implements Initializable {
             try {
                 Utilisateur user = ser.connecter(login, password);
                 if(user != null){
-                    if(user.getRole().equals("Administrateur")){
+                    if(user.getRole().contains("ADMIN")){
                     UserSession userSession = UserSession.getInstace( user.getLogin(),user.getRole(),user.getId_user());
                     Stage stage = new Stage();
                     Parent root = FXMLLoader.load(getClass().getResource("AcceuilAdminFXML.fxml"));

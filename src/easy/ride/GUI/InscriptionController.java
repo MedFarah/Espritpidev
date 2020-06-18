@@ -65,6 +65,8 @@ public class InscriptionController implements Initializable {
     @FXML
     private TextField Mail;
     @FXML
+    private TextField UserName;
+    @FXML
     private Label labelmail = new Label();
     @FXML
     private TextField Adresse;
@@ -105,8 +107,8 @@ public class InscriptionController implements Initializable {
     
     @FXML
     public void ajouter(ActionEvent event) {
-        
         String nomcomplet = nomComplet.getText();
+         String username = UserName.getText();
         String password = Password.getText();
         String passwordrepeat = Passwordrepeat.getText();
         String mail = Mail.getText();
@@ -134,6 +136,8 @@ public class InscriptionController implements Initializable {
         ServiceUtilisateur ser = new ServiceUtilisateur();
         if(nomcomplet.isEmpty() || !this.isStringOnlyAlphabet(nomcomplet) || nomcomplet.length()<6 || nomcomplet.length()>30 ){
             labelnomcomplet.setText("Champs Non Valide");
+        }else if(username.isEmpty() || !this.isStringOnlyAlphabet(username) || username.length()<4 || username.length()>30 ){
+            labelnomcomplet.setText("Champs Non Valide");
         }else if(password.isEmpty() || password.length()<6 || password.length()>30){
               labelpassword.setText("Champs Non Valide");
         }else if(!password.equals(passwordrepeat)){
@@ -145,7 +149,7 @@ public class InscriptionController implements Initializable {
         }else if(tel.isEmpty()  || !tel.matches("[0-9]+") || tel.length() != 8){
               labeltel.setText("Champs Non Valide");
         }else {
-            Utilisateur u1 = new Utilisateur(mail, "client", password, nomcomplet, mail, tel,datens, adresse);
+            Utilisateur u1 = new Utilisateur(username, "client", password, nomcomplet, mail, tel,datens, adresse);
             try {
              System.out.println("Erreur"+datens);
              boolean b = ser.testInscription(mail);
@@ -155,8 +159,7 @@ public class InscriptionController implements Initializable {
              alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Inscription");
         alert.setContentText("Inscription est terminée avec succés!");
-                alert.showAndWait();
-             
+                alert.showAndWait();         
                 ser.MailInscription(mail, "smtp.google@gmail.com");
             } catch (SQLException ex) {
                 Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
@@ -168,14 +171,12 @@ public class InscriptionController implements Initializable {
     public void Rootc(ActionEvent event) throws IOException {
         Stage stage;
         Parent root;
-
         stage = (Stage) hyperc.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
+    
 }
