@@ -59,6 +59,8 @@ public class AcceuilAdminFXMLController implements Initializable {
     private Button btnProduit;
     @FXML
     private Button btnLocation;
+    @FXML
+    private Button btnGestion;
 
     /**
      * Initializes the controller class.
@@ -93,6 +95,14 @@ public class AcceuilAdminFXMLController implements Initializable {
         AnchorPane anchor = FXMLLoader.load(getClass().getResource("IndexReclamationAdminFXML.fxml"));
         anchorPaneRootAdmin.getChildren().addAll(anchor);
     }
+    
+     @FXML
+    private void OnClickBtnGestion(ActionEvent event) throws IOException {
+        anchorPaneRootAdmin.getChildren().clear();
+        AnchorPane anchor = FXMLLoader.load(getClass().getResource("AfficheUsersAdmin.fxml"));
+        anchorPaneRootAdmin.getChildren().addAll(anchor);
+    }
+    
     @FXML
     private void OnClickBtnEvenement(ActionEvent event) throws IOException {
         anchorPaneRootAdmin.getChildren().clear();

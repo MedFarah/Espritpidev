@@ -3,6 +3,7 @@ package easy.ride.service;
 import easy.ride.entities.Evenements;
 import easy.ride.IService.IServiceUtilisateur;
 import easy.ride.Utils.DataBase;
+import easy.ride.entities.Commande;
 import easy.ride.entities.Utilisateur;
 import java.sql.SQLException;
 import java.util.List;
@@ -60,6 +61,38 @@ public class ServiceUtilisateur implements IServiceUtilisateur<Utilisateur> {
         return response;
     }
 
+    
+    public List<Utilisateur> AfficherUsersParAdmin(int iduser) throws SQLException {
+        List<Utilisateur> arr=new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("select * from fos_user ");
+      while (rs.next()) {                
+               int id = rs.getInt("id");
+            String nomcomplet = rs.getString("nomComplet");
+            String role = rs.getString("roles");
+            String login = rs.getString("username");
+            String password = rs.getString("password");
+            String mail = rs.getString("email");
+            String tel = rs.getString("tel");
+            String date = rs.getString("dateCreation");
+            String adresse = rs.getString("adresse");
+            Utilisateur u = new Utilisateur();
+            if (role.contains("ADMIN")) {
+                u.setRole("Administrateur");
+                System.out.println(u.getRole());
+            } else if (role.contains("CLIENT")) {
+                u.setRole("client");
+                System.out.println(u.getRole());
+            }
+               Utilisateur  p=  new Utilisateur(id, login, role, password, nomcomplet, mail, tel, date, adresse);
+               
+     arr.add(p);
+     }
+    return arr;
+    }
+    
+    
+    
     @Override
     public void ajouter(Utilisateur t) throws SQLException {
         // TODO Auto-generated method stub
@@ -97,6 +130,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     
     @Override
     public boolean delete(Utilisateur t) throws SQLException {
+        
         // TODO Auto-generated method stub
         String requeteDelete = "DELETE FROM fos_user WHERE id = ?  ;";
         PreparedStatement preparedStmt = con.prepareStatement(requeteDelete);

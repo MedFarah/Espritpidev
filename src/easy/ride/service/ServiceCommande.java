@@ -164,7 +164,7 @@ public class ServiceCommande implements IServiceCommande<Commande> {
      public List<Commande> AfficherCommandeParClient(int id_user) throws SQLException {
         List<Commande> arr=new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select * from commande where id_user="+id_user);
+    ResultSet rs=ste.executeQuery("select * from commande where id_user ="+id_user);
       while (rs.next()) {                
                String ref=rs.getString(1);
                Date date=rs.getDate(2);
